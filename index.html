@@ -1,47 +1,32 @@
+<html>
 
-/**
- * mostra a página anterior
- */
-function onPrevPage() {
-  if (pageNum <= 1) {
-    return;
-  }
-  pageNum--;
-  queueRenderPage(pageNum);
-}
-document.getElementById('prev').addEventListener('click', onPrevPage);
+<head>
+    <title>
+        Imersão Dev - Aula 05
+    </title>
+    <link href="https://mariosouto.com/imersaodev-aluraflix/style.css" rel="stylesheet" /> 
+    <script src="https://mariosouto.com/imersaodev-aluraflix/scripts.js"></script>
+</head>
 
-/**
- * mostra a proxima página
- */
-function onNextPage() {
-  if (pageNum >= pdfDoc.numPages) {
-    return;
-  }
-  pageNum++;
-  queueRenderPage(pageNum);
-}
-document.getElementById('next').addEventListener('click', onNextPage);
+<body>
+    <div class="container">
+        <h1 class="page-title">
+            Aluraflix
+        </h1>
+        <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo"
+            alt="">
+        <p class="page-subtitle">
+            Qual seu filme favorito?
+        </p>
+        <div class="form-wrapper">
+            <input type="text" id="filme" name="filme" placeholder="Insira endereço de imagem">
+            <button onClick="adicionarFilme()">Adicionar Filme</button>
+        </div>
+    </div>
+    <div id="listaFilmes"></div>
+    <a href="https://alura.com.br/" target="_blank">
+        <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+    </a>
+</body>
 
-/**
- * Download assincrono do PDF.
- */
-pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-  pdfDoc = pdfDoc_;
-  document.getElementById('page_count').textContent = pdfDoc.numPages;
-
-  renderPage(pageNum);
-});
-#pdf-exemplo {
-    border: 1px solid black;
-}
-<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
-
-<div>
-  <button id="prev">Proxima página</button>
-  <button id="next">Página anterior</button>
-  &nbsp; &nbsp;
-  <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-</div>
-
-<canvas id="pdf-exemplo"></canvas>
+</html>
